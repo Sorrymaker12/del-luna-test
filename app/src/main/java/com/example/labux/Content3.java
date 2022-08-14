@@ -3,6 +3,7 @@ package com.example.labux;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import android.content.Intent;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,7 @@ public class Content3 extends Fragment {
 
     RecyclerView recyclerView;
     RecyclerView.Adapter rvAdapter;
+    rvAdapter.rvClickListener listener;
     RecyclerView.LayoutManager layoutManager;
     String[] pPrice = {"Rp 602.000", "Rp 301.000", "Rp 828.000", "Rp 527.000", "Rp 271.000", "Rp 602.000"};
     String[] pname = {"NCT 127 - BAKER HOUSE Room Kit", "NCT DREAM - Glitch Mode Pop Up Card Holder+ID Card Set", "Aespa - Official Fanlight (Lightstick)", "Red Velvet - 'Feel My Rhythm’ Necklace + Exclusive Photo Card", "WayV - 3rd Anniversary Tattoo + Sticker Set 2019 Ver.", "TVXQ! - 18th ANNIVERSARY Memory Frame Fragrance"};
@@ -71,12 +73,27 @@ public class Content3 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_content3, container, false);
 
+        setOnClickListener();
+
         // Add the following lines to create RecyclerView
         recyclerView = view.findViewById(R.id.rv3);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        rvAdapter = new rvAdapter(getActivity(), pPrice, pImage);
+        rvAdapter = new rvAdapter(getActivity(), pname, pPrice, pImage, listener);
         recyclerView.setAdapter(rvAdapter);
         return view;
+    }
+
+    private void setOnClickListener() {
+        listener = new rvAdapter.rvClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getContext(), ItemDetail.class);
+                intent.putExtra("name", pname[position]);
+                intent.putExtra("price", pPrice[position]);
+                intent.putExtra("image", pImage[position]);
+                startActivity(intent);
+            }
+        };
     }
 }
