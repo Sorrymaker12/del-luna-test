@@ -1,45 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/DL_Drawer"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".Home">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent" >
 
-
-    <ImageView
-        android:id="@+id/IV_itemImg"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="310dp"
-        android:src="@drawable/slide3"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/TV_itemPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rp 1000.000"
-        android:textSize="35sp"
-        android:textColor="@color/orangeDark"
-        android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/TV_itemName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AESPA"
-        android:textSize="20sp"
-        android:textColor="@color/black" />
+        <ImageView
+            android:id="@+id/IV_itemImg"
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            android:src="@drawable/slide3"/>
 
-    <EditText
-        android:id="@+id/ET_itemQty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Quantity"/>
+        <TextView
+            android:id="@+id/TV_itemPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp 1000.000"
+            android:textSize="35sp"
+            android:textColor="@color/orangeDark"
+            android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/BTN_buy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/orangeDark"
-        android:layout_gravity="center"
-        android:text="BUY"/>
-</LinearLayout>
+        <TextView
+            android:id="@+id/TV_itemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AESPA"
+            android:textSize="20sp"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/ET_itemQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Quantity"/>
+
+        <Button
+            android:id="@+id/BTN_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/orangeDark"
+            android:layout_gravity="center"
+            android:text="BUY"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<com.google.android.material.navigation.NavigationView
+    android:id="@+id/NV_nav"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_gravity="start"
+    app:headerLayout="@layout/headernav"
+    app:menu="@menu/nav_menu">
+
+</com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>
