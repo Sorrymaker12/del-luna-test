@@ -2,6 +2,8 @@
     <string name="app_name">DEL LUNA</string>
     <string name="menu_open">Open</string>
     <string name="menu_close">Close</string>
+    <string name="app_bannerTitle1">Highest selling groups on \nDel Luna this month</string>
+    <string name="app_bannerTitle2">See anyone you stan?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

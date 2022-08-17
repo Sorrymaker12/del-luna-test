@@ -18,7 +18,7 @@ import android.widget.Toolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-public class Items extends AppCompatActivity {
+public class    Items extends AppCompatActivity {
 
     TabLayout tlTab;
     ViewPager2 vpFragment;

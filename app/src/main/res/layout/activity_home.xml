@@ -5,24 +5,103 @@
     android:id="@+id/DL_Drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FED45E"
     tools:context=".Home">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
         <TextView
-            android:id="@+id/TV_Home"
+            android:id="@+id/TV_welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome, User"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
-        </TextView>
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="30dp"
+            android:text="Welcome,"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/TV_Home"
+            android:layout_below="@id/TV_welcomeText"
+            android:layout_alignLeft="@id/TV_welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weewoo peepoo"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/BTN_lookitem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TV_Home"
+            android:layout_alignLeft="@id/TV_Home"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/orangeDark"
+            android:paddingHorizontal="40dp"
+            android:text="LOOK FOR ITEMS"
+            android:textSize="13sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/BTN_lookitem"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_bannerTitle1"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:paddingVertical="10dp"
+                android:text="@string/app_bannerTitle2"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/VP_imgSlide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp" />
+
+                <Button
+                    android:id="@+id/BTN_imagePrevious"
+                    android:layout_width="55dp"
+                    android:layout_height="67dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginVertical="110dp"
+                    android:drawableLeft="@drawable/ic_prev"
+                    android:backgroundTint="@color/grey"
+                    android:alpha="0.30"/>
+
+                <Button
+                    android:id="@+id/BTN_imageNext"
+                    android:layout_width="55dp"
+                    android:layout_height="67dp"
+                    android:layout_marginStart="290dp"
+                    android:layout_marginVertical="110dp"
+                    android:drawableLeft="@drawable/ic_next"
+                    android:backgroundTint="@color/grey"
+                    android:alpha="0.30"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/NV_nav"
