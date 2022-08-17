@@ -19,6 +19,8 @@ import android.view.ViewGroup;
  */
 public class Content1 extends Fragment {
 
+    Bundle Extras;
+    String a;
     RecyclerView recyclerView;
     RecyclerView.Adapter rvAdapter;
     rvAdapter.rvClickListener listener;
@@ -62,6 +64,8 @@ public class Content1 extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Extras = getActivity().getIntent().getExtras();
+        a = Extras.getString("username");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -94,6 +98,7 @@ public class Content1 extends Fragment {
                 intent.putExtra("name", pname[position]);
                 intent.putExtra("price", pPrice[position]);
                 intent.putExtra("image", pImage[position]);
+                intent.putExtra("username", a);
                 startActivity(intent);
             }
         };
