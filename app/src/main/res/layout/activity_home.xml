@@ -5,7 +5,7 @@
     android:id="@+id/DL_Drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FED45E"
+    android:background="@color/sub"
     tools:context=".Home">
 
     <RelativeLayout
@@ -16,12 +16,12 @@
             android:id="@+id/TV_welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
             android:text="Welcome,"
-            android:textSize="32sp"
+            android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/TV_Home"
@@ -33,41 +33,44 @@
             android:textSize="32sp"
             android:textStyle="bold"
             android:textColor="@color/white"
+            android:layout_marginBottom="16dp"
             />
-
-        <Button
-            android:id="@+id/BTN_lookitem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/TV_Home"
-            android:layout_alignLeft="@id/TV_Home"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/orangeDark"
-            android:paddingHorizontal="40dp"
-            android:text="LOOK FOR ITEMS"
-            android:textSize="13sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/BTN_lookitem"
+            android:layout_below="@id/TV_Home"
             android:background="#FFFFFF"
             android:orientation="vertical"
             android:padding="30dp">
+
+            <Button
+                android:id="@+id/BTN_lookitem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/main"
+                android:textColor="@color/black"
+                android:paddingHorizontal="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:text="Look For Items"
+                android:textSize="13sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/app_bannerTitle1"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginHorizontal="20dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:paddingVertical="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="30dp"
                 android:text="@string/app_bannerTitle2"/>
 
             <RelativeLayout

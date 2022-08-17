@@ -16,6 +16,15 @@ tools:context=".Home">
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/BTN_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/orangeDark"
+            android:layout_marginStart="20dp"
+            android:layout_marginVertical="10dp"
+            android:layout_gravity="start"
+            android:text="Back"/>
 
         <ImageView
             android:id="@+id/IV_itemImg"
@@ -27,6 +36,8 @@ tools:context=".Home">
             android:id="@+id/TV_itemPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
             android:text="Rp 1000.000"
             android:textSize="35sp"
             android:textColor="@color/orangeDark"
@@ -37,21 +48,27 @@ tools:context=".Home">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="AESPA"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="50dp"
             android:textSize="20sp"
             android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/ET_itemQty"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
             android:layout_gravity="center"
             android:hint="Quantity"/>
 
         <Button
             android:id="@+id/BTN_buy"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/orangeDark"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:text="BUY"/>
     </LinearLayout>

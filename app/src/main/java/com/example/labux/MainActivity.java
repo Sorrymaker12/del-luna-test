@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             if (flag.get()) {
-                btnSubmit.setBackgroundColor(Color.WHITE);
+                btnSubmit.setBackgroundColor(Color.BLACK);
                 Intent intent = new Intent(this, Home.class);
                 String sep[] = email.split("@");
                 intent.putExtra("username", sep[0]);

@@ -25,7 +25,7 @@ public class ItemDetail extends AppCompatActivity {
     ImageView imageView;
     TextView pName, pPrice;
     EditText quantity;
-    Button buyBtn;
+    Button buyBtn, backBtn;
     String qty;
     DrawerLayout DL;
     NavigationView NV;
@@ -46,6 +46,7 @@ public class ItemDetail extends AppCompatActivity {
         AtomicBoolean flag = new AtomicBoolean(true);
         quantity = findViewById(R.id.ET_itemQty);
         buyBtn = findViewById(R.id.BTN_buy);
+        backBtn = findViewById(R.id.BTN_back);
 
         buyBtn.setOnClickListener(e ->  {
             flag.set(true);
@@ -61,12 +62,21 @@ public class ItemDetail extends AppCompatActivity {
             if (flag.get()) {
                 Extras = getIntent().getExtras();
                 String a = Extras.getString("username");
-                buyBtn.setBackgroundColor(Color.WHITE);
+                buyBtn.setBackgroundColor(Color.BLACK);
                 Intent intent1 = new Intent(ItemDetail.this, Items.class);
                 intent1.putExtra("username", a);
                 startActivity(intent1);
                 finish();
             }
+        });
+
+        backBtn.setOnClickListener(e -> {
+            Extras = getIntent().getExtras();
+            String a = Extras.getString("username");
+            Intent intent1 = new Intent(ItemDetail.this, Items.class);
+            intent1.putExtra("username", a);
+            startActivity(intent1);
+            finish();
         });
     }
 
