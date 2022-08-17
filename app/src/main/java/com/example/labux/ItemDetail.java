@@ -31,7 +31,7 @@ public class ItemDetail extends AppCompatActivity {
     NavigationView NV;
     Toolbar TB;
     ActionBarDrawerToggle AB;
-    Bundle Extras;
+    Bundle Extras, Extras1;
 
 
     boolean checkEmpty (String qty) {
@@ -59,9 +59,12 @@ public class ItemDetail extends AppCompatActivity {
 
 
             if (flag.get()) {
+                Extras = getIntent().getExtras();
+                String a = Extras.getString("username");
                 buyBtn.setBackgroundColor(Color.WHITE);
-                Intent intent = new Intent(this, Items.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(ItemDetail.this, Items.class);
+                intent1.putExtra("username", a);
+                startActivity(intent1);
                 finish();
             }
         });
@@ -81,9 +84,10 @@ public class ItemDetail extends AppCompatActivity {
         pPrice = findViewById(R.id.TV_itemPrice);
 
         Extras = getIntent().getExtras();
-        String itemname = Extras.getString("name");
-        String itemprice = Extras.getString("price");
-        Object itemimage = Extras.get("image");
+        Extras1 = getIntent().getExtras();
+        String itemname = Extras1.getString("name");
+        String itemprice = Extras1.getString("price");
+        Object itemimage = Extras1.get("image");
         pName.setText(itemname);
         pPrice.setText(itemprice);
         imageView.setImageResource((Integer) itemimage);
