@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.ET_Email);
         etPass = findViewById(R.id.ET_Password);
         btnSubmit = findViewById(R.id.BT_Login);
+        TextView error = findViewById(R.id.error);
         etUsername = etEmail;
 
         btnSubmit.setOnClickListener(e ->  {
@@ -74,39 +77,46 @@ public class MainActivity extends AppCompatActivity {
             email = etEmail.getText().toString();
             pass = etPass.getText().toString();
 
-            if (!checkEmpty(email)) {
-                etEmail.setError("Email Must Be Filled");
-                flag.set(false);
-            }
-
-            if (!checkEmpty(pass)) {
-                etPass.setError("Password Must Be Filled");
-                flag.set(false);
-            }
-
-            if (!checkEmailEnding(email)) {
-                etEmail.setError("Email must ends with .com");
-                flag.set(false);
-            }
-
-            if (!checkEmailContain(email)) {
-                etEmail.setError("Email must contains @");
+            if (!checkPassAlphanumeric(pass)) {
+                error.setText("Password must be alpha-numeric!");
+                error.setVisibility(error.VISIBLE);
                 flag.set(false);
             }
 
             if (!checkEmailAdjacent(email)) {
-                etEmail.setError("Email cannot contain adjacent @ and .com");
+                error.setText("'@' and '.' must not be adjacent!");
+                error.setVisibility(error.VISIBLE);
                 flag.set(false);
             }
 
-            if (!checkPassAlphanumeric(pass)) {
-                etPass.setError("Password must be alphanumeric");
+            if (!checkEmailContain(email)) {
+                error.setText("Email must contain '@'!");
+                error.setVisibility(error.VISIBLE);
+                flag.set(false);
+            }
+
+            if (!checkEmailEnding(email)) {
+                error.setText("Email must end with '.com'!");
+                error.setVisibility(error.VISIBLE);
+                flag.set(false);
+            }
+
+            if (!checkEmpty(pass)) {
+                error.setText("All fields must be filled!");
+                error.setVisibility(error.VISIBLE);
+                flag.set(false);
+            }
+
+            if (!checkEmpty(email)) {
+                error.setText("All fields must be filled!");
+                error.setVisibility(error.VISIBLE);
                 flag.set(false);
             }
 
 
             if (flag.get()) {
                 btnSubmit.setBackgroundColor(Color.BLACK);
+                error.setVisibility(error.INVISIBLE);
                 Intent intent = new Intent(this, Home.class);
                 String sep[] = email.split("@");
                 intent.putExtra("username", sep[0]);
